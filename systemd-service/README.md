@@ -14,13 +14,19 @@ Next, we will download the systemd service example into the folder we created (w
 wget -O /opt/syncv3/syncv3.service https://raw.githubusercontent.com/arankwende/sliding-sync/main/systemd-service/syncv3.service
 ```
 
-We need to edit the environment variables that will be given at run time directly in the service file file and populate it as specified on the sliding sync docs:
+as well as the bash file
 ```
-nano /opt/syncv3/syncv3.service
+wget -O /opt/syncv3/syncv3.service https://raw.githubusercontent.com/arankwende/sliding-sync/main/systemd-service/syncv3.sh
+```
+
+
+We need to edit the environment variables that will be given at run time directly in the bashfile file and populate it as specified on the sliding sync docs:
+```
+nano /opt/syncv3/syncv3.sh
 
 ```
 
-We now make the user we created (in this example ipmimqtt) owner of the ipmi folder:
+We now make the user we created (in this example ipmimqtt) owner of the syncv3 folder:
 ```
 chown -R syncv3 /opt/syncv3/
 
@@ -36,10 +42,6 @@ Now we copy the systemd example script into the user systemd folder:
 cp /opt/syncv3/syncv3.service /etc/systemd/system/
 ```
 
-And we make executable:
-```
-chmod +x /etc/systemd/system/syncv3.service
-```
 
 
 

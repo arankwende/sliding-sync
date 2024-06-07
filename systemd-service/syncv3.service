@@ -7,7 +7,7 @@ Type=simple
 Restart=always
 RestartSec=10
 User=syncv3
-ExecStart=SYNCV3_SECRET=$(cat /opt/syncv3/.secret) SYNCV3_SERVER="https://matrix-client.matrix.org" SYNCV3_DB="user=syncv3 dbname=syncv3 sslmode=disable password='PASSWORD'" SYNCV3_BINDADDR=0.0.0.0:8008 /opt/syncv3/syncv3_linux_amd64 
+ExecStart=/bin/bash /opt/syncv3/syncv3.sh
 
 [Install]
 WantedBy=multi-user.target
